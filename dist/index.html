@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Search Engine</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    font-family: Raleway, sans-serif !important;
+    draggable: false !important;
+    outline: 0px;
+    background-color: #CFCFCF !important;
+    border: 0px solid black !important;
+    user-drag: none !important;
+    user-select: none !important;
+}
+.topbar {
+    text-align: center !important;
+}
+
+.topbar * {
+    text-align: center !important;
+}
+  /*The ad blocking code*/
+.gcse-searchresults-only, .gcse-searchresults-only * {
+    text-align: left !important;
+    background-color: #CFCFCF !important;
+    border: 0px solid black !important;
+}
+.gcsc-more-maybe-branding-root {
+    display: none;
+    border: 0px solid black !important;
+}
+#master-1, #master-2, .gsc-adBlock {
+    display: none;
+    border: 0px solid black !important;
+}
+*[title="Ads by Google"] {
+    display: none;
+}
+.gsc-adBlock {
+    display: none !important;
+}
+.topbar {
+    display: inline-block;
+}
+.gs-image {
+    user-drag: none !important;
+    user-select: none !important;
+}
+.gsc-tabHeader, .gsc-inline-block{
+    border-bottom: 1px solid black !important;
+}
+.gsc-tabhActive {
+    border-bottom: 1px solid red !important;
+}
+img {
+    border-radius: 5px !important;
+}
+    </style>
+    </head>
+<body>
+<div class="topbar">
+    <h1>LottamoSearch</h1>
+    <form action="" method="get" id="searchInput" onsubmit="search()">
+        <input width="100%" placeholder="Search" name="q" style="border:1px solid" id="searchbox">
+        <input type="submit" style="border:1px solid">
+    </form>
+    <a href="/search">Reset</a>
+</div>
+<script async src="https://cse.google.com/cse.js?cx=<your_gsce_key>"></script>
+<div class="gcse-searchresults-only"></div>
+<script>
+document.getElementById('searchbox').value = localStorage.getItem('sTerm')
+function eraseCookie(name) {   
+    document.cookie = name+'=; Max-Age=-99999999;';  
+}
+function search() {
+    localStorage.setItem('sTerm', document.getElementById('searchbox').value);
+}
+if (window.location.search === '?') {
+    document.getElementById('searchbox').value = ''
+} else {
+    document.getElementById('searchbox').value = getCookie('search_term')
+}
+    var els = document.querySelectorAll('*');
+for (var i=0; i < els.length; i++) {
+    els[i].setAttribute("draggable", "false");
+}
+</script>
+<hr>
+<a href="default.html">How to make Lottamo.com your default search</a>
+<script>localStorage.clear()</script>
+</body>
+</html>
